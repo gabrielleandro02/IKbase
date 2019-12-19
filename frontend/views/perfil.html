@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="projeto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/perfil.css">
+    <link rel="stylesheet" type="text/css" href="/css/geral.css">
+    <script src="/libs/angular.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/directives/uiGeral.js"></script>
+    <script src="/js/perfil.js"></script>
+    <title>Perfil</title>
+</head>
+<body>
+    <ui-header></ui-header>
+    <div id="site-perfil">
+        <section id="corpo">
+        <div id="sobre" >
+            <img src="img/8dicas8.jpg" id="img-perfil" alt="alterar imagem"/>
+            <hr>
+            <div id=biografia>
+                 <h5 style="text-align:center">Biografia:</h5>
+                 <p style="margin-left:2%;">eu n sei oq escrever, por isso escreverei qualquer coisa, assim posso ter uma ideia do comportamento desse parágrafo no site. n foi o suficiente , quero testar mais um pouco</p>
+                <hr>
+            </div>
+            <div id="links">
+                <h5 style="text-align: center;">Links pessoais e profissionais:</h5>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Linkedin</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Github</a></li>
+                </ul>
+            </div>
+            <hr>
+            <a href="#" onclick="esconde_topicos()" id="link-editar"><div id="editar">
+                <p>Editar perfil</p>
+                <img src="img/download.png" />
+            </div>
+            </a>
+        </div>
+            <div class="topicos" id="topicos">
+                    <div id="title" class="topico">
+                        <h1>Topicos criados</h1>
+                    </div>
+                    <div class="topico">
+                        <h2>titulo do tópico "tecnologia"<tag></h2>
+                        <p>conteúdo do topico</p>
+                        <p class="data"> data da criação do tópico</p>
+                        <p class="resposta">respostas: ?</p>
+                    </div>
+                    <div class="topico">
+                        <h2>titulo do tópico 2 "tecnologia"<tag></h2>
+                        <p>conteúdo do topico</p>
+                        <p class="data"> data da criação do tópico</p>
+                        <p class="resposta">respostas: ?</p>
+                    </div>
+                    <div class="topico">
+                        <h2>titulo do tópico 2 "tecnologia"<tag></h2>
+                        <p>conteúdo do topico</p>
+                        <p class="data"> data da criação do tópico</p>
+                        <p class="resposta">respostas: ?</p>
+                    </div>
+                    <div class="topico">
+                        <h2>titulo do tópico 2 "tecnologia"<tag></h2>
+                        <p>conteúdo do topico</p>
+                        <p class="data"> data da criação do tópico</p>
+                        <p class="resposta">respostas: ?</p>
+                    </div>
+                    <div class="topico">
+                        <h2>titulo do tópico 2 "tecnologia"<tag></h2>
+                        <p>conteúdo do topico</p>
+                        <p class="data"> data da criação do tópico</p>
+                        <p class="resposta">respostas: ?</p>
+                    </div>
+            </div>
+            <div id="editar-formulario" class="topicos" style="display:none;">
+            <form action="/pagina-processa-dados-do-form" method="post" class="topico" id="formulario">
+                <label class="label">Nome:</label>
+                <input name="nome" type="text" placeholder="alterar nome..."/>
+                <div>
+                <label class="label" for="sobre">Biografia:</label>
+                <textarea placeholder="Altere sua biografia.." id="area-bio" rows="10" cols="80" style="resize: none"></textarea>
+                </div>
+            </form>
+            <div id="tags" class="topico" style="display:none;">
+                <label>Adicionar competência:</label>
+                <select name="tag">
+                    <option value="HTML5" selected>HTML5</option> 
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                  </select>
+                  <select name="nivel">
+                    <option value="Aprendiz">Aprendiz (1 ano -  de uso)</option> 
+                    <option value="Experiente" selected>Experiente (1 a 2 anos de uso)</option>
+                    <option value="Jedi">Jedi (3+ anos de uso) </option>
+                  </select>
+                  <button>Adicionar</button>
+             </div>
+            </div>
+            <div id="competencias" class="topicos">
+                <table class="topico table">
+                    <thead>
+                        <tr>
+                        <th>Competência</th>
+                        <th>Nivel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>tag</td>
+                        <td>Aprendiz</td>
+                        </tr>
+                        <tr>
+                        <td>tag2</td>
+                        <td>Jedi</td>
+                        </tr>
+                        <tr>
+                        <td>tag3</td>
+                        <td>Experiente</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            </section>
+        </section>
+    </div>
+    <ui-footer></ui-footer>
+</body>
+</html>
