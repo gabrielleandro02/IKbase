@@ -1,0 +1,105 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    word-wrap: break-word;
+}
+
+body{
+    max-width: 100%;
+    overflow: auto;
+}
+
+
+
+
+/*CSS HEADER*/
+header{
+    background-color: #444444;
+    height: auto;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 15vh;
+    
+    font-family: Arial, Helvetica, sans-serif;
+}
+.logo img{
+    height: 15vh;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+}
+.nav-links a{
+    color: whitesmoke;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 24px;
+}
+.nav-links li{
+    list-style: none;
+}
+.nav-links a:hover{
+    color: yellow;
+    text-shadow: 0px 0px 1px yellow;
+}
+
+
+
+/*CSS FOOTER*/
+footer{
+    width: 100%;
+    float: left;
+}
+.footer-div-image{
+    width: 20%;
+    height: 120px;
+    float: left;
+    background-image: url("/img/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #444444;
+}   
+.logo-footer{
+    margin-top: 20px;
+    margin-left: 30px;
+    position: relative;
+    height: 100px;
+}
+.text{
+    width: 70%;
+    margin-left: 25%;
+    font-size: 20px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.footer-div-rest{
+    width: 80%;
+    float: right;
+    height: 120px;
+    background-color: #444444;
+}
+.footer-div-icons{
+    background-color: #444444;
+    height: 80px;
+    width: 85%;
+    display: inline-block;
+}
+.footer-div-icons ul{
+    list-style: none;
+    margin-left: 30%;
+}
+.footer-div-icons ul li{
+    display: inline;
+}
+.footer-div-txt{
+    margin-top: 8px;
+    margin-left: 140px;
+    color: white;
+}
+
+

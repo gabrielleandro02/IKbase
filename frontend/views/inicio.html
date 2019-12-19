@@ -1,0 +1,61 @@
+<html ng-app="projeto">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpg" href="/img/finallogo.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/geral.css">
+    <link rel="stylesheet" type="text/css" href="/css/inicio.css">
+    <script src="/libs/angular.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers/inicioCtrl.js"></script>
+    <script src="/js/services/cadastroCtrl.js"></script>
+    <script src="/js/services/configValue.js"></script>
+    <script src="/js/directives/uiGeral.js"></script>
+    <script src="/js/services/topicosAPI.js"></script>
+    <script src="/js/services/tagsAPI.js"></script>
+    <script src="/js/services/usuarioAPI.js"></script>
+
+    
+</head>
+
+<body ng-controller="inicioCtrl">
+    <ui-header></ui-header>
+    <div id="container">
+
+        <div id="container-left">
+            
+            <input type="text" class="form-control" placeholder="Título" ng-model="tituloBusca"></input>
+            <button class="btn btn-secondary btn-block" ng-click="ordenarPor(tituloBusca)">Buscar por titulo</button>
+            
+            <select ng-model="tagSelecionada" class="form-control" ng-options="tag.tecnologia for tag in tags">
+                <option value="">Selecione uma tag</option>
+            </select>
+            <button class="btn btn-secondary btn-block" ng-click="ordenarPor(tagSelecionada.tecnologia)">Buscar por Tag</button>
+        </div>
+
+        <div id="container-rigth">
+            <table class="table table-striped">
+                <tr class="thead-dark">
+                    <th>Titulo</th>
+                    <th>Tag(s)</th>
+                    <th>Criado</th>
+                    <th>Usuario</th>
+                    <th>Finalizado</th>
+                </tr>
+                <tr ng-repeat="topico in topicos | filter:conteudo">
+                    <td><a href="http:localhost:3000/" ng-click="getIdTopico(topico.id)">{{topico.titulo}}</a></td>
+                    <td>{{topico.tag.tecnologia}}</td>
+                    <td>{{topico.dataCriacao}}</td>
+                    <td>{{topico.usuario}}</td>
+                    <td>{{topico.finalizado}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <ui-footer></ui-footer>
+</body>
+
+</html>

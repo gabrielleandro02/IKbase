@@ -1,0 +1,39 @@
+<html ng-app="projeto">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpg" href="/img/finallogo.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/cadastro.css">
+    <script src="/libs/angular.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers/loginCtrl.js"></script>
+    <script src="/js/services/usuarioAPI.js"></script>
+    <script src="/js/services/configValue.js"></script>
+</head>
+
+<body ng-controller="loginCtrl">
+    <div id="container">
+        <h1>Login</h1>
+        <form name="usuarioForm">
+
+            <input type="email" placeholder="E-mail..." class="form-control" name="email" ng-model="usuario.email"
+                ng-required="true">
+            <div ng-show="usuarioForm.email.$error.required && usuarioForm.email.$dirty" class="alert alert-danger">
+                Por favor digite seu email</div>
+
+
+            <input type="password" placeholder="Senha..." name="senha" class="form-control" ng-model="usuario.senha"
+                ng-required="true">
+            <div ng-show="usuarioForm.senha.$error.required && usuarioForm.senha.$dirty" class="alert alert-danger">
+                Por favor digite sua senha</div>
+                
+        </form>
+        <a href="http://localhost:3000/"><button ng-disabled="usuarioForm.$invalid" class="btn btn-light btn-block" ng-click="logar()">Logar</button></a>
+
+    </div>
+</body>
+
+</html>
