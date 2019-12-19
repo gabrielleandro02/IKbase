@@ -85,8 +85,9 @@ footer{
 }
 .footer-div-icons{
     background-color: #444444;
-    height: 80px;
+    height: 60px;
     width: 85%;
+    margin-top: 2%;
     display: inline-block;
 }
 .footer-div-icons ul{
@@ -97,7 +98,6 @@ footer{
     display: inline;
 }
 .footer-div-txt{
-    margin-top: 8px;
     margin-left: 140px;
     color: white;
 }
