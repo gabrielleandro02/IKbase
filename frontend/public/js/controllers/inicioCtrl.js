@@ -1,7 +1,7 @@
 angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, tagsAPI, usuarioAPI){
 	$scope.topicos=[]
     $scope.tags=[]
-
+    $scope.usuarios=[]
     
     
 
@@ -9,11 +9,10 @@ angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, 
         $scope.conteudo=busca
     }
 
-    $scope.getIdTopico=(id)=>{
+    $scope.setIdStorage=(id)=>{
         localStorage.setItem('idtopico', id)
     }
    
-
     const topicosPorData=()=>{
         topicosAPI.topicosPorData().then((result) => {
             $scope.topicos=result.data
@@ -37,12 +36,23 @@ angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, 
     const getUserById=()=>{
         usuarioAPI.getUserById($scope.id).then((result)=>{
             $scope.usuario=result.data
-            console.log(result.data)
+            console.log($scope.usuario)
         }).catch((err)=>{
             $scope.error='não foi possivel carregar os dados'
             $scope.error2=err
         })
     }
+
+    const getUsers=()=>{
+        usuarioAPI.getUsers().then((result) => {
+            $scope.usuarios=result.data
+            console.log($scope.usuarios)
+        }).catch((err) => {
+            $scope.error='não foi possivel carregar os dados'
+            $scope.error2=err
+        });
+    }
+
 
     $scope.id=localStorage.getItem('meuusuario')
     $scope.usuario={}
@@ -50,9 +60,12 @@ angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, 
         getUserById()
     }
 
-    console.log($scope.id)
-    console.log($scope.tags)
     getTags()
-    getUserById()
-    //topicosPorData()
+    getUsers()
+    topicosPorData()
+
+    console.log($scope.id)
+
+    
+    
 })

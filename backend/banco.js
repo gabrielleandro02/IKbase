@@ -14,7 +14,7 @@ const client = new pg.Client(config)
 async function getTopicos() {
     try {
         client.connect()
-        const query = "select * from topico;"
+        const query = "select tp.*, u.nome from topico tp inner join usuario u on u.id=tp.id_usuario order by tp.dataCriacao desc"
         const result = await client.query(query)
         return result.rows
     } catch (error) {
@@ -27,6 +27,17 @@ async function getTags() {
     try {
         client.connect()
         const query = "select * from tag;"
+        const result = await client.query(query)
+        return result.rows
+    } catch (e) {
+        throw e
+    }
+}
+
+async function getUsuarios() {
+    try {
+        client.connect()
+        const query = "select * from usuario;"
         const result = await client.query(query)
         return result.rows
     } catch (e) {
@@ -130,6 +141,38 @@ async function insertComentario(texto, datacriacao, resposta, id_usuario, id_top
     }
 }
 
+async function getTopicoById(id){
+    try{
+        client.connect()
+        const query = `select topico.*, usuario.nome as usuario from topico inner join usuario on topico.id_usuario=usuario.id where topico.id='${id}'`
+        const result = await client.query(query)
+        return result.rows[0]
+    }catch(e){
+        throw(e)
+    }
+}
+
+async function getUsuarioById(id){
+    try{
+        client.connect()
+        const query = `select * from usuario where id='${id}'`
+        const result = await client.query(query)
+        return result.rows[0]
+    }catch(e){
+        throw(e)
+    }
+}
+
+async function getComentarioByTopico(idtopico) {
+    try {
+        client.connect()
+        const query = ` select ct.* as topico, u.nome, u.id from comentario ct inner join topico tp on ct.id_topico = tp.id inner join usuario u on tp.id_usuario=u.id where tp.id =  '${idtopico}'`
+        const result = await client.query(query)
+        return result.rows
+    } catch (e) {
+        throw(e)
+    }
+}
 
 
 async function selectTag(tag) {
@@ -170,4 +213,4 @@ selectValidacao('peter@peter.com', '123456')
 
 //insertUser('peter@peter3.com', '123456', 'Parker', '1998-11-25', 'seila')
 
-module.exports = { getTopicos, getTags, insertUsuario, insertTopico, insertCompetencia, insertTagTopico, insertTag, insertComentario, selectValidacao, selectTag }
+module.exports = { getUsuarioById, getTopicoById, getComentarioByTopico, getUsuarios, getTopicos, getTags, insertUsuario, insertTopico, insertCompetencia, insertTagTopico, insertTag, insertComentario, selectValidacao, selectTag }

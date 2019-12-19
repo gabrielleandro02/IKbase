@@ -1,8 +1,8 @@
 angular.module("projeto").factory("comentariosAPI", ($http, config)=>{
 
-    let getComentarioByTopico=(idTopico)=>{
-        return $http.get(config.baseURL+"/dbcomentarios?idtopico"+idTopico) 
+    let getComentariosByTopico=(id)=>{
+        return $http.get(config.baseURL+"/dbcomentarios/"+id) 
     }
 
-    return{getComentarioByTopico}
+    return{getComentariosByTopico}
 })

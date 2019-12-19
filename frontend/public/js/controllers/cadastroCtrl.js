@@ -1,4 +1,4 @@
-angular.module('projeto').controller('cadastroCtrl', function ($scope) {
+angular.module('projeto').controller('cadastroCtrl', function ($scope, usuarioAPI) {
     $scope.usuario = {}
 
     $scope.confirmPassword = (senha1, senha2) => {
@@ -7,5 +7,14 @@ angular.module('projeto').controller('cadastroCtrl', function ($scope) {
         } else {
             return false
         }
+    }
+
+    $scope.cadastrar=()=>{
+        usuarioAPI.cadastrar($scope.usuario).then(() => {
+            localStorage.setItem('meuusuario', $scope.usuario.id)
+        }).catch((err) => {
+            $scope.error='nao foi possivel carregar os dados'
+            $scope.error2=(err)
+        })
     }
 })

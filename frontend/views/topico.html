@@ -11,13 +11,17 @@
     <script src="/libs/angular.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/directives/uiGeral.js"></script>
+    <script src="/js/controllers/topicoCtrl.js"></script>
+    <script src="/js/services/configValue.js"></script>
+    <script src="/js/services/topicosAPI.js"></script>
+    <script src="/js/services/comentariosAPI.js"></script>
 </head>
 
-<body>
+<body ng-controller="topicoCtrl">
     <ui-header></ui-header>
     <div id="container">
-       <table>
-           <tr>
+       <table class="table table-striped">
+           <tr style="background-color: #444444; color: whitesmoke;">
                <th>Topico</th>
                <th>Usuario</th>
            </tr>
@@ -26,6 +30,20 @@
                <td>{{topico.usuario}}</td>
            </tr>
        </table>
+       <table class="table table-striped" >
+        <tr style="background-color: #444444; color: whitesmoke;">
+            <th>Comentario</th w>
+            <th>Data Criação</th>
+            <th>Usuario</th>
+            <th>Resposta</th>
+        </tr>
+        <tr ng-repeat="comentario in comentarios">
+            <td width="50%">{{comentario.texto}}</td>
+            <td>{{comentario.datacriacao}}</td>
+            <td>{{comentario.nome}}</td>
+            <td>{{comentario.resposta}}</td>
+        </tr>
+    </table>
     </div>
     <ui-footer></ui-footer>
 </body>

@@ -49,8 +49,7 @@ app.post("/usuario", async (req, res) => {
     res.sendFile(viewsPath+'/usuario.html')
 })
 
-app.get("/topico/:id", async(req, res)=>{
-    let result=await getTopicoById(req.params.id)
+app.get("/topico/", (req, res)=>{
     res.sendFile(viewsPath+'/topico.html')
 })
 
@@ -59,34 +58,8 @@ app.get("/topico/:id", async(req, res)=>{
 
 
 
-// todos os topicos ordenado por data
 app.get("/dbtopicos", async (req, res)=>{
     let result= await db.getTopicos()
-    res.send(result)
-    res.end()
-})
-
-
-// topicos com a condição like  
-// localhost:3000/dbtopico/alguma coisa
-app.get("/dbtopico/:titulo", async (req, res)=>{
-    let result= await db.getTopicoByTitulo(req.params.titulo)
-    res.send(result)
-    res.end()
-})
-
-
-// todos os topicos com 'x' tecnologia
-// localhost:3000/dbtopico?tag=tecnologia
-app.get("/dbtopico", async (req, res)=>{
-    let result= await db.getTopicoByTag(req.query.tag)
-    res.send(result)
-    res.end()
-})
-
-
-app.get("/dbcomentarios/:idtopico", async(req, res)=>{
-    let result=await db.getComentariosByTopico(req.params.idtopico)
     res.send(result)
     res.end()
 })
@@ -97,9 +70,13 @@ app.get("/dbtags", async (req, res)=>{
     res.end()
 })
 
+app.get("/dbcomentarios/:id", async (req,res)=>{
+    let result= await db.getComentarioByTopico(req.params.id)
+    res.send(result)
+    res.end()
+})
+
 app.get("/dbcompetencias", async (req, res)=>{
-
-
     let result= await db.getCompetencias()
     res.send(result)
     res.end()
@@ -114,6 +91,23 @@ app.post("/dbusuarioByLogin", async(req, res)=>{
 
 app.post("/dbusuarioById", async(req, res)=>{
     let result=await db.getUsuarioById(req.body.id)
+    res.send(result)
+    res.end()
+})
+
+app.post("/dbcadastroUsuario", async(req, res)=>{
+    user=req.body
+    await db.insertUsuario(user.email, user.senha, user.nome, user.dataNascimento)
+})
+
+app.get("/dbgetUsuarios", async(req, res)=>{
+    let result= await db.getUsuarios()
+    res.send(result)
+    res.end()
+})
+
+app.get("/dbtopicoById/:id", async(req, res)=>{
+    let result= await db.getTopicoById(req.params.id)
     res.send(result)
     res.end()
 })

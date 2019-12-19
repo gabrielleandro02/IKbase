@@ -17,6 +17,7 @@
     <script src="/js/services/topicosAPI.js"></script>
     <script src="/js/services/tagsAPI.js"></script>
     <script src="/js/services/usuarioAPI.js"></script>
+    <script></script>
 
     
 </head>
@@ -46,10 +47,10 @@
                     <th>Finalizado</th>
                 </tr>
                 <tr ng-repeat="topico in topicos | filter:conteudo">
-                    <td><a href="http:localhost:3000/" ng-click="getIdTopico(topico.id)">{{topico.titulo}}</a></td>
+                    <td><a href="http://localhost:3000/topico/" ng-click="setIdStorage(topico.id)">{{topico.titulo}}</a></td>
                     <td>{{topico.tag.tecnologia}}</td>
-                    <td>{{topico.dataCriacao}}</td>
-                    <td>{{topico.usuario}}</td>
+                    <td>{{topico.datacriacao}}</td>
+                    <td>{{topico.nome}}</td>
                     <td>{{topico.finalizado}}</td>
                 </tr>
             </table>
