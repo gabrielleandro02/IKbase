@@ -1,9 +1,9 @@
-angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, tagsAPI, usuarioAPI){
-	$scope.topicos=[]
+angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, tagsAPI){
+    $scope.topicos=[]
     $scope.tags=[]
-    $scope.usuarios=[]
-    
-    
+    $scope.tag_topicos=[]
+
+
 
     $scope.ordenarPor=(busca)=>{
         $scope.conteudo=busca
@@ -11,6 +11,16 @@ angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, 
 
     $scope.setIdStorage=(id)=>{
         localStorage.setItem('idtopico', id)
+    }
+    if(localStorage.getItem('meuusuario')){
+        $scope.id=localStorage.getItem('meuusuario')
+    }
+
+    $scope.cadastrarTopico=()=>{
+        $scope.topico["idUsuario"]=$scope.id
+        console.log($scope.topico)
+        topicosAPI.cadastrarTopico($scope.topico)
+        topicosPorData()
     }
    
     const topicosPorData=()=>{
@@ -33,26 +43,20 @@ angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, 
         })
     }
 
-    const getUserById=()=>{
-        usuarioAPI.getUserById($scope.id).then((result)=>{
-            $scope.usuario=result.data
-            console.log($scope.usuario)
-        }).catch((err)=>{
-            $scope.error='não foi possivel carregar os dados'
-            $scope.error2=err
-        })
+    const getTagTopicos=()=>{
+        
     }
 
+    
 
-    $scope.id=localStorage.getItem('meuusuario')
-    $scope.usuario={}
-    if($scope.id){
-        getUserById()
-    }
+
+    
+      
+
 
     getTags()
     topicosPorData()
-
+    getTagTopicos()
     console.log($scope.id)
 
     

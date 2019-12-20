@@ -1,8 +1,11 @@
 angular.module('projeto').controller('topicoCtrl', function($scope, topicosAPI, comentariosAPI){
     $scope.topico={}
     $scope.comentarios=[]
-    $scope.idTopico=localStorage.getItem('idtopico')
 
+
+
+    $scope.idTopico=localStorage.getItem('idtopico')
+    
 	const getTopico=(id)=>{
         topicosAPI.topicoPorId(id).then((result)=>{
             $scope.topico=result.data

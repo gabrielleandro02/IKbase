@@ -1,5 +1,19 @@
 #container{
     width: 80%;
+    min-height: 100vh;
+    height: auto;
     position: relative;
     margin: 0px auto;
+}
+
+.btn-secondary{
+    background-color: #444444;
+}
+
+input, textarea{
+    margin-bottom: 1%;
+}
+
+.form-control{
+    border: #444444 1px solid;
 }

@@ -67,20 +67,23 @@ async function insertUsuario(email, senha, nome, nascimento) {
     }
 }
 
-async function insertTopico(titulo, texto, criacao, username, tag) {
+async function insertTopico(id_usuario, titulo, texto, tags) {
     try {
-        client.connect()
-        const select = `select id from usuario where nome = '${username}'`
-        var id_usuario = await client.query(select)
-        id_usuario = id_usuario.rows[0].id
-
+        const insert = `insert into topico(titulo, texto, datacriacao, finalizado, id_usuario) values('${titulo}', '${texto}', CURRENT_DATE, 'false', '${id_usuario}') RETURNING id`
+        const id = await client.query(insert)
+        tags.forEach(tag => {
+            insertTagTopico(id, tag.id)
+        })
+        client.end()
     } catch (e) {
         console.log(e)
     }
+}
+
+async function insertTagTopico(id_topico, tag_id) {
     try {
-        const insert = `insert into topico(titulo, texto, datacriacao, finalizado, id_usuario) values('${titulo}', '${texto}', '${criacao}', 'false','${id_usuario}')`
+        const insert = `insert into tag_topico(id_tag,id_topico) values('${tag_id}', '${id_topico}')`
         await client.query(insert)
-        client.end()
     } catch (e) {
         console.log(e)
     }
@@ -108,16 +111,7 @@ async function insertTag(tecnologia) {
     }
 }
 
-async function insertTagTopico(id_topico, tag_id) {
-    try {
-        client.connect()
-        const insert = `insert into tag_topico(id_tag,id_topico) values('${tag_id}', '${id_topico}')`
-        await client.query(insert)
-        client.end()
-    } catch (e) {
-        console.log(e)
-    }
-}
+
 
 async function insertUsuarioCompetencia(id_user, id_competencia) {
     try {
@@ -130,10 +124,10 @@ async function insertUsuarioCompetencia(id_user, id_competencia) {
     }
 }
 
-async function insertComentario(texto, datacriacao, resposta, id_usuario, id_topico) {
+async function insertComentario(texto, id_usuario, id_topico) {
     try {
         client.connect()
-        const insert = `insert into comentario(texto,datacriacao,resposta,id_usuario,id_topico) values('${texto}', '${datacriacao}','${resposta}', '${id_usuario}', '${id_topico}' )`
+        const insert = `insert into comentario(texto,datacriacao,resposta,id_usuario,id_topico) values('${texto}', CURRENT_TIMESTAMP(), false, '${id_usuario}', '${id_topico}' )`
         await client.query(insert)
         client.end()
     } catch (e) {

@@ -1,24 +1,25 @@
 #container{
     position: relative;
     margin: 0px;
-    height: 800px;
+    height: auto;
     box-shadow: 0px 0px 1px 1px black;  
 }
 
 #container-left{
     width: 20%; 
-    height: 100%;
+    min-height: 100vh;
+    height: auto;
     float: left;
-    box-shadow:0px 0px 1px 1px #444444; 
     padding: 2%;
     word-wrap: break-word;
 }
 
 #container-rigth{
     width: 80%;
-    height: 100%;
+    min-height: 100vh;
+    height: auto;
     float: right;
-    box-shadow:0px 0px 1px 1px #444444;
+    box-shadow:0px 0px 1px 2px #444444;
     padding: 2%;
     word-wrap: break-word;
 }
@@ -28,10 +29,16 @@
     margin-bottom: 15%;
 }
 
-#container-left button:hover{
-    background-color: rgb(133, 133, 0);
-}
+
 
 .btn-secondary{
     background-color: #444444;
+}
+
+input, textarea{
+    margin-bottom: 1%;
+}
+
+.form-control{
+    border: #444444 1px solid;
 }

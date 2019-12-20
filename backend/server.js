@@ -86,7 +86,7 @@ app.post("/dbusuarioByLogin", async(req, res)=>{
     res.end()
 })
 
-app.post("/dbusuarioById", async(req, res)=>{
+app.post("/dbusuarioById/", async(req, res)=>{
     let result=await db.getUsuarioById(req.body.id)
     res.send(result)
     res.end()
@@ -96,6 +96,13 @@ app.post("/dbcadastroUsuario", async(req, res)=>{
     user=req.body
     await db.insertUsuario(user.email, user.senha, user.nome, user.dataNascimento)
 })
+
+app.post("/dbcadastroTopico", async(req, res)=>{
+    topico=req.body
+    console.log(topico)
+    await db.insertTopico(topico.idUsuario, topico.titulo, topico.texto, topico.tags)
+})
+
 
 app.get("/dbgetUsuarios", async(req, res)=>{
     let result= await db.getUsuarios()
@@ -107,6 +114,12 @@ app.get("/dbtopicoById/:id", async(req, res)=>{
     let result= await db.getTopicoById(req.params.id)
     res.send(result)
     res.end()
+})
+
+app.get("/dbtagTopico", async(req, res)=>{
+    //let result=await db.getTagTopico()
+    res.send(result)
+    res.end
 })
 
 app.get("/*", (req, res)=>{

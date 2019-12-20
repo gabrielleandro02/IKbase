@@ -21,30 +21,54 @@
 <body ng-controller="topicoCtrl">
     <ui-header></ui-header>
     <div id="container">
-       <table class="table table-striped">
-           <tr style="background-color: #444444; color: whitesmoke;">
-               <th>Topico</th>
-               <th>Usuario</th>
-           </tr>
-           <tr>
-               <td>{{topico.titulo}}</td>
-               <td>{{topico.usuario}}</td>
-           </tr>
-       </table>
-       <table class="table table-striped" >
-        <tr style="background-color: #444444; color: whitesmoke;">
-            <th>Comentario</th w>
-            <th>Data Criação</th>
-            <th>Usuario</th>
-            <th>Resposta</th>
-        </tr>
-        <tr ng-repeat="comentario in comentarios">
-            <td width="50%">{{comentario.texto}}</td>
-            <td>{{comentario.datacriacao}}</td>
-            <td>{{comentario.nome}}</td>
-            <td>{{comentario.resposta}}</td>
-        </tr>
-    </table>
+        <table class="table table-striped">
+            <tr style="background-color: #444444; color: whitesmoke;">
+                <th>Topico</th>
+                <th>Usuario</th>
+            </tr>
+            <tr>
+                <td>{{topico.titulo}}</td>
+                <td>{{topico.usuario}}</td>
+            </tr>
+        </table>
+        <table style="width: 100%;" class="table">
+            <tr>
+                <th>Descrição</th>
+            </tr>
+            <tr>
+                <td>{{topico.texto}}</td>
+            </tr>
+        </table>
+        <table class="table table-striped">
+            <tr style="background-color: #444444; color: whitesmoke;">
+                <th>Comentario</th w>
+                <th>Data Criação</th>
+                <th>Usuario</th>
+                <th>Resposta</th>
+            </tr>
+            <tr ng-repeat="comentario in comentarios">
+                <td width="70%">{{comentario.texto}}</td>
+                <td>{{comentario.datacriacao | date:'dd/MM/yy hh:mm'}}</td>
+                <td>{{comentario.nome}}</td>
+                <td>{{comentario.resposta}}</td>
+            </tr>
+        </table>
+        <form ng-show="id" name="comentarioForm" style="text-align: center; margin-top: 10%;">
+            <label>
+                <h1>Cadastre sua duvida</h1>
+            </label>
+            <input type="text" placeholder="Digite um Titulo..." ng-model="topico.titulo" name="titulo"
+                class="form-control">
+
+            <label>Digite sua duvida completa</label>
+            <textarea name="texto" ng-model="topico.texto" rows="10" class="form-control"></textarea>
+
+            <select ng-model="topico.tags" class="form-control" ng-options="tag.tecnologia for tag in tags" multiple>
+                <option value="">Selecione uma tag</option>
+            </select>
+            <button style="margin-top: 1%;" ng-click="cadastrarTopico()" class="btn btn-secondary btn-block">Criar
+                Topico</button>
+        </form>
     </div>
     <ui-footer></ui-footer>
 </body>
