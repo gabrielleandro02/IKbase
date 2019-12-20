@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en" ng-app="projeto">
 <head>
     <meta charset="UTF-8">
@@ -11,13 +11,10 @@
     <script src="/js/app.js"></script>
     <script src="/js/directives/uiGeral.js"></script>
     <script src="/js/perfil.js"></script>
-    <script src="/js/controllers/deslogarCtrl.js"></script>
     <title>Perfil</title>
 </head>
 <body>
     <ui-header></ui-header>
-    <div id="site-perfil">
-        <section id="corpo">
         <div id="sobre" >
             <img src="img/8dicas8.jpg" id="img-perfil" alt="alterar imagem"/>
             <hr>
@@ -32,7 +29,6 @@
                     <li><a href="#">Facebook</a></li>
                     <li><a href="#">Linkedin</a></li>
                     <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Github</a></li>
                 </ul>
             </div>
             <hr>
@@ -42,66 +38,73 @@
             </div>
             </a>
         </div>
+        <a href="#" onclick="mostra_skills()"><img src="img/skills.png" id="skills"/></a>
             <div class="topicos" id="topicos">
                     <div id="title" class="topico">
                         <h1>Topicos criados</h1>
                     </div>
                     <div class="topico">
                         <h2>titulo do tópico "tecnologia"<tag></h2>
-                        <p>conteúdo do topico</p>
                         <p class="data"> data da criação do tópico</p>
                         <p class="resposta">respostas: ?</p>
                     </div>
                     <div class="topico">
                         <h2>titulo do tópico 2 "tecnologia"<tag></h2>
-                        <p>conteúdo do topico</p>
                         <p class="data"> data da criação do tópico</p>
                         <p class="resposta">respostas: ?</p>
                     </div>
                     <div class="topico">
                         <h2>titulo do tópico 2 "tecnologia"<tag></h2>
-                        <p>conteúdo do topico</p>
                         <p class="data"> data da criação do tópico</p>
                         <p class="resposta">respostas: ?</p>
                     </div>
                     <div class="topico">
                         <h2>titulo do tópico 2 "tecnologia"<tag></h2>
-                        <p>conteúdo do topico</p>
                         <p class="data"> data da criação do tópico</p>
                         <p class="resposta">respostas: ?</p>
                     </div>
                     <div class="topico">
                         <h2>titulo do tópico 2 "tecnologia"<tag></h2>
-                        <p>conteúdo do topico</p>
                         <p class="data"> data da criação do tópico</p>
                         <p class="resposta">respostas: ?</p>
                     </div>
             </div>
-            <div id="editar-formulario" class="topicos" style="display:none;">
+            <div id="formeditar" class="topicos" style="display:none;">
+            <div id="seila">
             <form action="/pagina-processa-dados-do-form" method="post" class="topico" id="formulario">
-                <label class="label">Nome:</label>
-                <input name="nome" type="text" placeholder="alterar nome..."/>
                 <div>
-                <label class="label" for="sobre">Biografia:</label>
-                <textarea placeholder="Altere sua biografia.." id="area-bio" rows="10" cols="80" style="resize: none"></textarea>
+                <label class="label font-italic">Nome:</label>
+                <input class="form-control" name="nome" type="text" placeholder="alterar nome..."/>
                 </div>
+                <label class="label font-italic" for="sobre">Biografia:</label>
+                <textarea class="form-control" placeholder="Altere sua biografia.." id="area-bio" rows="10" cols="80" style="resize: none" maxlength="255"></textarea>
             </form>
+             </div>
             <div id="tags" class="topico" style="display:none;">
-                <label>Adicionar competência:</label>
-                <select name="tag">
+                <label class="label">Adicionar competência:</label>
+                <select name="tag" class="form-control">
                     <option value="HTML5" selected>HTML5</option> 
                     <option value="CSS">CSS</option>
                     <option value="JavaScript">JavaScript</option>
+                    <option value="Android">Android</option>
+                    <option value="Angular">Angular</option>
+                    <option value="Java">Java</option>
+                    <option value="Node.js">Node.js</option>
+                    <option value="PHP">PHP</option>
+                    <option value="MySQL">MySQL</option>
+                    <option value="PostgreSQL">PostgreSQL</option>
+                    <option value="React">React</option>
+                    <option value="C/C++">C/C++</option>
                   </select>
-                  <select name="nivel">
+                  <select name="nivel" class="form-control">
                     <option value="Aprendiz">Aprendiz (1 ano -  de uso)</option> 
                     <option value="Experiente" selected>Experiente (1 a 2 anos de uso)</option>
                     <option value="Jedi">Jedi (3+ anos de uso) </option>
                   </select>
-                  <button>Adicionar</button>
+                  <button class="btn btn-primary">Adicionar</button>
              </div>
             </div>
-            <div id="competencias" class="topicos">
+            <div id="competencias" class="topicos" style="display:none;">
                 <table class="topico table">
                     <thead>
                         <tr>
@@ -127,8 +130,6 @@
                 </table>
             </div>
             </section>
-        </section>
-    </div>
     <ui-footer></ui-footer>
 </body>
 </html>

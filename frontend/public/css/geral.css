@@ -24,7 +24,6 @@ nav{
     justify-content: space-around;
     align-items: center;
     min-height: 15vh;
-    
     font-family: Arial, Helvetica, sans-serif;
 }
 .logo img{
@@ -65,12 +64,6 @@ footer{
     background-size: contain;
     background-color: #444444;
 }   
-.logo-footer{
-    margin-top: 20px;
-    margin-left: 30px;
-    position: relative;
-    height: 100px;
-}
 .text{
     width: 70%;
     margin-left: 25%;
@@ -79,27 +72,28 @@ footer{
     position: relative;
 }
 .footer-div-rest{
-    width: 80%;
+    width: 100%;
     float: right;
     height: 120px;
     background-color: #444444;
+    z-index: 2;
+    position:absolute;
 }
 .footer-div-icons{
     background-color: #444444;
     height: 60px;
-    width: 85%;
-    margin-top: 2%;
+    width: 100%;
     display: inline-block;
+    text-align:center;
 }
 .footer-div-icons ul{
     list-style: none;
-    margin-left: 30%;
 }
 .footer-div-icons ul li{
     display: inline;
 }
 .footer-div-txt{
-    margin-left: 140px;
+   text-align:center;
     color: white;
 }
 
