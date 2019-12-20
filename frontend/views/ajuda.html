@@ -11,14 +11,47 @@
     <script src="/js/app.js"></script>
     <script src="/js/directives/uiGeral.js"></script>
     <script src="/js/controllers/deslogarCtrl.js"></script>
+    <script src="/js/ajuda.js"></script>
 </head>
 
 <body>
     <ui-header></ui-header>
-    <div id="container">
-       sdhsfd
+    <div id="container" style="height: 100vh; background-color: #999999;">
+        <div class="container-ajuda">
+       <h2>Você esta perdido?<a class="link-ajuda" href="http://localhost:3000">  Clique aqui para voltar!</a></h2>
+        </div>
+    
+
+
+    <div id="div-tutorial">
+        <div id="ss" style="background-color: #999999; width: 100%; height: auto;">
+         
+            <h2 id="h2-t1" onmouseup="mostra()">Como criar uma conta?</h2>
+            <h2 id="h2-t2" onmouseup="mostra2()">Como criar um tópico?</h2>
+
+
     </div>
+
+        <div  id="tutorial-1" style="display: none; padding-left: 5%; padding: 2%; color: white; text-align: left;">
+            <h4 style="margin-bottom: 1%;">CADASTRAR:</h4>
+            <p>1 - Clique em "CADASTRAR"</p>
+            <P>2 - Preencha todos os campos</P>
+            <p>3 - Pressione o botão "CADASTRAR"</p>
+        </div>
+        
+
+        <div  id="tutorial-2" style="display: none; padding-left: 5%; padding: 2%; color: white; text-align: left;">
+            <h4 style="margin-bottom: 1%;">CRIAR TÓPICO:</h4>
+            <p>1 - Cadastre-se</p>
+            <P>2 - Realize o login</P>
+            <p>3 - Pressione o botão "CRIAR TÓPICO"</p>
+            <p>4 - Preencha todos os tópicos</p>
+            </div>
+
+
+    </div>
+</div>
+    
     <ui-footer></ui-footer>
 </body>
-
 </html>

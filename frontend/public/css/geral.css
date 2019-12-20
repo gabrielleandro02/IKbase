@@ -98,4 +98,48 @@ footer{
     color: white;
 }
 
+.container-ajuda{
+    width: 100%;
+    background-color: #999999;
+    text-align: center;
+    padding: 5%;
+    color: white;
+
+}
+
+.container-ajuda a:hover{
+    text-decoration: none;
+}
+
+
+#div-tutorial{
+    background-color:#666666;
+    height: auto;
+    
+}
+
+#h2-t1{
+    width: 30%;
+    margin-left: 35%;
+    background-color: #666666;
+    text-align: center; 
+    color: white;
+}
+#h2-t1:hover{
+    color: yellow;
+}
+
+#h2-t2{
+    width: 30%;
+    margin-left: 35%;
+    background-color: #666666;
+    text-align: center; 
+    color: white;
+}
+#h2-t2:hover{
+    color: yellow;
+}
+
+
+
 
