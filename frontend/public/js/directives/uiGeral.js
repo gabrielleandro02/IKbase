@@ -33,15 +33,15 @@ angular.module("projeto").directive("uiFooter", function() {
         <div class="footer-div-rest">
             <div class="footer-div-icons">
                 <ul>
-                    <li><a href="https://pt-br.facebook.com/KbaseItSolutions/"><img src="/img/icons8-facebook-48.png" alt=""></a></li>
-                    <li><a href="https://www.instagram.com/kbasesoftwares/"><img src="/img/icons8-instagram-48.png" alt=""></ahref="http:"></li>
-                    <li><a href="https://www.linkedin.com/company/kbasesoftwares"><img src="/img/icons8-linkedin-48.png" alt=""></a></li>
-                    <li><a href="https://github.com/kbase"><img src="/img/icons8-git-48.png" alt=""></a></li>
+                    <li><a href="https://pt-br.facebook.com/KbaseItSolutions/"><img style="width: 3%; heigth: 3%;" src="/img/Facebook.png" alt=""></a></li>
+                    <li><a href="https://www.instagram.com/kbasesoftwares/"><img style="width: 3%; heigth: 3%; margin-left: 1%" src="/img/Instagram.png" alt=""></ahref="http:"></li>
+                    <li><a href="https://www.linkedin.com/company/kbasesoftwares"><img style="width: 3%; heigth: 3%; margin-left: 1%" src="/img/LinkedIn.png" alt=""></a></li>
+                    <li><a href="https://github.com/kbase"><img style="width: 4%; heigth: 4%; margin-left: 0.5%" src="/img/icon.png" alt=""></a></li>
                 </ul>
             </div>
 
             <div class="footer-div-txt">
-                © Copyright 2001-Infinito Copyright.com.br - All Rights Reserved - Grupão da Tarde 
+                © Copyright 2019-Infinito Copyright.com.br - All Rights Reserved - Grupão da Tarde 
             </div>
            
 
