@@ -2,9 +2,9 @@
 const pg = require('pg')
 
 const config = {
-    user: 'postgres', // env var: PGUSER
-    database: 'talentos8', // env var: PGDATABASE
-    password: 'Kbase1novar', // env var: PGPASSWORD
+    user: 'dodo', // env var: PGUSER
+    database: 'talentos7', // env var: PGDATABASE
+    password: 'talentos2019', // env var: PGPASSWORD
     host: '69.171.4.30', // Server hosting the postgres database
     port: 5432, // env var: PGPORT
 }
@@ -12,10 +12,12 @@ const config = {
 const client = new pg.Client(config)
 
 async function getTopicos() {
+    client.connect()
+    
     try {
-        client.connect()
         const query = "select tp.*, u.nome from topico tp inner join usuario u on u.id=tp.id_usuario order by tp.dataCriacao desc"
         const result = await client.query(query)
+        
         return result.rows
     } catch (error) {
         throw error
@@ -24,8 +26,9 @@ async function getTopicos() {
 
 
 async function getTags() {
+    client.connect()
+
     try {
-        client.connect()
         const query = "select * from tag;"
         const result = await client.query(query)
         return result.rows
@@ -35,8 +38,9 @@ async function getTags() {
 }
 
 async function getUsuarios() {
+    client.connect()
+
     try {
-        client.connect()
         const query = "select * from usuario;"
         const result = await client.query(query)
         return result.rows
@@ -46,8 +50,9 @@ async function getUsuarios() {
 }
 
 async function selectValidacao(email, senha) {
+    client.connect()
+
     try {
-        client.connect()
         const query = `select * from usuario where email = '${email}' and senha = '${senha}'`
         const result = await client.query(query)
         return result.rows[0]
@@ -57,30 +62,33 @@ async function selectValidacao(email, senha) {
 }
 
 async function insertUsuario(email, senha, nome, nascimento) {
+    client.connect()
+
     try {
-        client.connect()
         const insert = `insert into usuario(email, senha, nome, nascimento) values('${email}', '${senha}', '${nome}', '${nascimento}')`
         await client.query(insert)
-        client.end()
     } catch (e) {
         console.log(e)
     }
 }
 
 async function insertTopico(id_usuario, titulo, texto, tags) {
+    client.connect()
+
     try {
         const insert = `insert into topico(titulo, texto, datacriacao, finalizado, id_usuario) values('${titulo}', '${texto}', CURRENT_DATE, 'false', '${id_usuario}') RETURNING id`
         const id = await client.query(insert)
         tags.forEach(tag => {
             insertTagTopico(id, tag.id)
         })
-        client.end()
     } catch (e) {
         console.log(e)
     }
 }
 
 async function insertTagTopico(id_topico, tag_id) {
+    client.connect()
+
     try {
         const insert = `insert into tag_topico(id_tag,id_topico) values('${tag_id}', '${id_topico}')`
         await client.query(insert)
@@ -90,54 +98,44 @@ async function insertTagTopico(id_topico, tag_id) {
 }
 
 async function insertCompetencia(tecnologia, nivel) {
+    client.connect()
+
     try {
-        client.connect()
         const insert = `insert into competencia(tecnologia,nivel) values('${tecnologia}', '${nivel}')`
         await client.query(insert)
-        client.end()
     } catch (e) {
         console.log(e)
     }
 }
 
 async function insertTag(tecnologia) {
+    client.connect()
+
     try {
-        client.connect()
         const insert = `insert into tag(tecnologia) values('${tecnologia}')`
         await client.query(insert)
-        client.end()
     } catch (e) {
         console.log(e)
     }
 }
 
 
-
-async function insertUsuarioCompetencia(id_user, id_competencia) {
-    try {
-        client.connect()
-        const insert = `insert into usuario_competencia(id_usuario,id_competencia) values('${id_user}', '${id_competencia}')`
-        await client.query(insert)
-        client.end()
-    } catch (e) {
-        console.log(e)
-    }
-}
 
 async function insertComentario(texto, id_usuario, id_topico) {
+    client.connect()
+
     try {
-        client.connect()
-        const insert = `insert into comentario(texto,datacriacao,resposta,id_usuario,id_topico) values('${texto}', CURRENT_TIMESTAMP(), false, '${id_usuario}', '${id_topico}' )`
+        const insert = `insert into comentario(texto,datacriacao,resposta,id_usuario,id_topico) values('${texto}', CURRENT_DATE, false, '${id_usuario}', '${id_topico}' )`
         await client.query(insert)
-        client.end()
     } catch (e) {
         console.log(e)
     }
 }
 
 async function getTopicoById(id){
+    client.connect()
+
     try{
-        client.connect()
         const query = `select topico.*, usuario.nome as usuario from topico inner join usuario on topico.id_usuario=usuario.id where topico.id='${id}'`
         const result = await client.query(query)
         return result.rows[0]
@@ -146,9 +144,20 @@ async function getTopicoById(id){
     }
 }
 
-async function getUsuarioById(id){
+async function getTopicosByUsuario(id){
+    client.connect()
     try{
-        client.connect()
+        const query = `select * from topico inner join usuario on usuario.id=topico.id_usuario where usuario.id='${id}'`
+        const result = await client.query(query)
+        return result.rows
+    }catch(e){
+        throw(e)
+    }
+}
+
+async function getUsuarioById(id){
+    client.connect()
+    try{
         const query = `select * from usuario where id='${id}'`
         const result = await client.query(query)
         return result.rows[0]
@@ -158,8 +167,9 @@ async function getUsuarioById(id){
 }
 
 async function getComentarioByTopico(idtopico) {
+    client.connect()
+
     try {
-        client.connect()
         const query = ` select ct.* as topico, u.nome, u.id from comentario ct inner join topico tp on ct.id_topico = tp.id inner join usuario u on tp.id_usuario=u.id where tp.id =  '${idtopico}'`
         const result = await client.query(query)
         return result.rows
@@ -168,10 +178,21 @@ async function getComentarioByTopico(idtopico) {
     }
 }
 
+async function getTagTopico(){
+    client.connect()
+
+    try{
+        const query = `select * from tag_topico`
+        const result = await client.query(query)
+        return result.rows
+    }catch (e){
+        throw e
+    }
+}
 
 async function selectTag(tag) {
+    client.connect()
     try {
-        client.connect()
         const select1 = `select id from tag where tecnologia = '${tag}'`
         var tag_id = await client.query(select1)
         tag_id = tag_id.rows[0].id
@@ -183,12 +204,10 @@ async function selectTag(tag) {
             client.query(select3).then(res => {
                 console.log(res)
             }).finally(() => {
-                client.end()
             })
         });
     } catch (e) {
         console.log(e)
-        client.end()
     }
     // const select2 = `select * from tag_topico where email = '${email}' and senha = '${senha}'`
 }
@@ -200,11 +219,11 @@ async function selectTag(tag) {
 //insertTagTopico(1,1)
 //insertUsuarioCompetencia(1,1)
 //insertComentario('n entendo nada de HTML5', '2019-12-17', 'false', '2','1')
-selectValidacao('peter@peter.com', '123456')
+//selectValidacao('peter@peter.com', '123456')
 
 //selectTag('HTML5')
 
 
 //insertUser('peter@peter3.com', '123456', 'Parker', '1998-11-25', 'seila')
 
-module.exports = { getUsuarioById, getTopicoById, getComentarioByTopico, getUsuarios, getTopicos, getTags, insertUsuario, insertTopico, insertCompetencia, insertTagTopico, insertTag, insertComentario, selectValidacao, selectTag }
+module.exports = { getTopicosByUsuario, getTagTopico, getUsuarioById, getTopicoById, getComentarioByTopico, getUsuarios, getTopicos, getTags, insertUsuario, insertTopico, insertCompetencia, insertTagTopico, insertTag, insertComentario, selectValidacao, selectTag }
