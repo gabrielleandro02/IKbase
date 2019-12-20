@@ -4,8 +4,8 @@ angular.module("projeto").factory("usuarioAPI",function($http, config){
         return $http.post(config.baseURL+"/dbusuarioByLogin", usuario) 
     }
     
-    let getUserById=(id)=>{
-        return $http.post(config.baseURL+"/dbusuarioById/", id)
+    let getUserById = (id)=>{
+        return $http.post(config.baseURL+"/dbusuarioById", {id})
     }
 
     let cadastrar=(usuario)=>{

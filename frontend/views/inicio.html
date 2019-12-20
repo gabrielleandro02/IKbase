@@ -18,6 +18,7 @@
     <script src="/js/services/tagsAPI.js"></script>
     <script src="/js/services/usuarioAPI.js"></script>
     <script src="/js/controllers/deslogarCtrl.js"></script>
+    <script src="/js/services/tagTopicoAPI.js"></script>
 
     
 </head>
@@ -61,7 +62,7 @@
                 <label>Digite sua duvida completa</label>
                 <textarea name="texto" ng-model="topico.texto" rows="10" class="form-control"></textarea>
 
-                <select ng-model="topico.tags" class="form-control" ng-options="tag.tecnologia for tag in tags" multiple>
+                <select ng-model="topico.tags" class="form-control" ng-options="tag.tecnologia for tag in tags">
                     <option value="">Selecione uma tag</option>
                 </select>
                 <button style="margin-top: 1%;" ng-click="cadastrarTopico()"  class="btn btn-secondary btn-block">Criar Topico</button>

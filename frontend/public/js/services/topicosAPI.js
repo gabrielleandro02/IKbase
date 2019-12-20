@@ -12,5 +12,9 @@ angular.module("projeto").factory("topicosAPI", ($http, config)=>{
         return $http.post(config.baseURL+"/dbcadastroTopico/", topico)
     }
 
-    return{topicosPorData, topicoPorId, cadastrarTopico}
+    let topicosByUsuario=(id)=>{
+        return $http.post(config.baseURL+"/dbtopicosByUsuario", {id})
+    } 
+
+    return{topicosPorData, topicoPorId, cadastrarTopico, topicosByUsuario}
 })

@@ -1,7 +1,7 @@
-angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, tagsAPI){
+angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, tagsAPI, tagTopicoAPI){
     $scope.topicos=[]
     $scope.tags=[]
-    $scope.tag_topicos=[]
+    $scope.tag_topico=[]
 
 
 
@@ -44,8 +44,14 @@ angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, 
         })
     }
 
-    const getTagTopicos=()=>{
-        
+    const getTagTopico=()=>{
+        tagTopicoAPI.getTagTopico().then((result) => {
+            $scope.tag_topico=result.data
+            console.log(result.data)
+        }).catch((err) => {
+            $scope.error='não foi possivel carregar os dados'
+            $scope.error2=err
+        })
     }
 
     
@@ -57,7 +63,7 @@ angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, 
 
     getTags()
     topicosPorData()
-    getTagTopicos()
+    getTagTopico()
     console.log($scope.id)
 
     
