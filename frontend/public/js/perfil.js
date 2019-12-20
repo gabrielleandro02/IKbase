@@ -4,13 +4,19 @@ function esconde_topicos(){
   var form = document.getElementById('formeditar')
   var select = document.getElementById('tags')
   var competencia = document.getElementById('competencias')
+  var sobre = document.getElementById('sobre')
+  var skills = document.getElementById('skills')
     if(form.style.display ==="none"){
+      skills.style.marginLeft= "0"
+      sobre.style.position = "relative";
       topico.style.display = "none"
       form.style.display = "block"
       select.style.display = "block"
       competencia.style.display = "none"
     }else
     if (topico.style.display === "none") {
+        skills.style.marginLeft= "21%"
+        sobre.style.position = "fixed";
         topico.style.display = "block"
         form.style.display = "none"
         competencia.style.display = "none"
