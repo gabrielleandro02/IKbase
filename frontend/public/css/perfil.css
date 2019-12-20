@@ -6,22 +6,24 @@ body {
 a{
     text-decoration: none;
 }
-#site-perfil {
-    background-color:rgba(245, 245, 245, 0.541);
-}
 
 
 
 /* div sobre, div imagem de perfil e div briografia */
 
 #sobre {
+    margin-left:1%;
     width: 20%;
     background-color: white;
-    float:left;
     text-align:center;
     border-style:solid;
     border-width:2px;
+    float:left;
     position:fixed;
+    z-index: 1;
+}
+#sobre ul{
+    list-style-type: none;
 }
 
 #img-perfil {
@@ -29,47 +31,48 @@ a{
     width:35%;
     margin-left:auto;
     margin-right:auto;
-    margin-top:5%;
+    margin-top:3%;
 }
 
 #biografia p{
     text-align: left;
-    margin-bottom: 5%;
+    padding-left: 1%;
+    margin-bottom: 3%;
+    font-size:14px;
 }
 
 #links{
-    margin-top:5%;
-    margin-bottom:5%;
+    margin-top:3%;
+    margin-bottom:3%;
 }
 
 #biografia {
-    margin-top:5%;
+    margin-top:3%;
 }
 
 #editar img{
-    width:30%;
     margin-top:-3%;
+    width:20%;
 }
 
-#editar{
-    margin-top:5%;
-}
 
 /* section topicos e div lista de topicos*/
 
-#editar-formulario input{
-   margin-top:3%;
-   margin-bottom:3%;
-}
+
 #editar-formulario textarea {
     margin-bottom:3%;
 }
 .topicos{
-    width:80%;
-    float:right;
+    width:79%;
+    margin:auto;
     text-align:center;
+    float: right;
 }
 #title{
+   font-size:20px;
+   font-family: Arial, Helvetica, sans-serif;
+}
+#formeditar {
     margin-top:0;
 }
 .topico{
@@ -80,6 +83,7 @@ a{
     margin-right:auto;
     border-style: solid;
     border-width:2px;
+    margin-bottom:3%;
 }
 
 .topico h1{
@@ -89,13 +93,26 @@ a{
 
 .topico h2{
     font-size:15px;
-}
-
-.label{
-    font-size:20px;
+    font-weight: bolder;
 }
 
 #tags{
     padding-top: 1.5%;
     padding-bottom: 1.5%;
+}
+table{
+    margin-bottom: 3%;
+}
+
+button{
+    margin-top:3%;
+}
+/* div competencias */
+
+/* img competencias */
+
+#skills {
+    width:5%;
+    position:fixed;
+    margin-left:21%;
 }
