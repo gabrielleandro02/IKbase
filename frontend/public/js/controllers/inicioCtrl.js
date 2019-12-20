@@ -12,6 +12,7 @@ angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, 
     $scope.setIdStorage=(id)=>{
         localStorage.setItem('idtopico', id)
     }
+    
     if(localStorage.getItem('meuusuario')){
         $scope.id=localStorage.getItem('meuusuario')
     }

@@ -12,10 +12,10 @@
     <script src="/libs/angular.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/controllers/loginCtrl.js"></script>
+    <script src="/js/controllers/deslogarCtrl.js"></script>
     <script src="/js/services/usuarioAPI.js"></script>
     <script src="/js/services/configValue.js"></script>
     <script src="/js/directives/uiGeral.js"></script>
-    <script src="/js/controllers/deslogarCtrl.js"></script>
 
 </head>
 
@@ -38,8 +38,8 @@
                 Por favor digite sua senha</div>
                 
         </form>
-        <a><button ng-disabled="usuarioForm.$invalid" class="btn btn-light btn-block" ng-click="logar()">Logar</button></a>
-
+        <a href="http://localhost:3000/"><button ng-disabled="usuarioForm.$invalid" class="btn btn-light btn-block" ng-click="logar()">Logar</button></a>
+        <p style="margin-top:5%;">não tem uma conta? <a href="http://localhost:3000/cadastro">cadastre-se</a></p>
     </div>
     <ui-footer></ui-footer>
 </body>
