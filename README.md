@@ -7,7 +7,7 @@ Desenvolvido por Grupo da tarde:
 - Yuri dos Anjos - (FrontEnd)
 - Gabriel Leandro - (FrontEnd)
 
-(Com participação dos responsáveis pelo BackEnd no FrontEnd e do FrontEnd no BackEnd)
+(Com participação dos responsáveis pelo BackEnd no FrontEnd assim como do FrontEnd no BackEnd)
 
 Tecnologias utilizadas:
 
