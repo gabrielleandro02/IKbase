@@ -1,7 +1,7 @@
 angular.module("projeto").directive("uiHeader", function() {
   return {
     template: `
-        <header>
+        <header ng-controller="deslogarCtrl">
         <nav>
             <div class="logo">
                 <img src="/img/logo.png">
@@ -13,7 +13,7 @@ angular.module("projeto").directive("uiHeader", function() {
             </ul>
             <ul class="nav-links" style="width: 25%; margin-top: 1%;">
                 <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;" ng-show="id"><a href="http://localhost:3000/usuario">Usuario</a></li>
-                <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;" ng-show="id"><a href="http://localhost:3000/">Deslogar</a></li>
+                <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;" ng-show="id"><a href="http://localhost:3000/" ng-click="deslogar()">Deslogar</a></li>
                 <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;" ng-show="!id"><a href="http://localhost:3000/login">Login</a></li>
                 <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;" ng-show="!id"><a href="http://localhost:3000/cadastro">Cadastro</a></li>
             </ul>

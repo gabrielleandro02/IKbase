@@ -43,16 +43,6 @@ angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, 
         })
     }
 
-    const getUsers=()=>{
-        usuarioAPI.getUsers().then((result) => {
-            $scope.usuarios=result.data
-            console.log($scope.usuarios)
-        }).catch((err) => {
-            $scope.error='não foi possivel carregar os dados'
-            $scope.error2=err
-        });
-    }
-
 
     $scope.id=localStorage.getItem('meuusuario')
     $scope.usuario={}
@@ -61,7 +51,6 @@ angular.module("projeto").controller("inicioCtrl", function($scope, topicosAPI, 
     }
 
     getTags()
-    getUsers()
     topicosPorData()
 
     console.log($scope.id)

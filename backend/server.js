@@ -42,11 +42,8 @@ app.get("/cadastro", (req, res) => {
     res.sendFile(viewsPath+'/cadastro.html')
 })
 
-app.post("/usuario", async (req, res) => {
-    let usuario=await getUsuarioById(req.body[0].id)
-    let logado=true
-    res.send(usuario, logado) //enviar usuario completo
-    res.sendFile(viewsPath+'/usuario.html')
+app.get("/usuario", (req, res) => {
+    res.sendFile(viewsPath+'/perfil.html')
 })
 
 app.get("/topico/", (req, res)=>{
