@@ -15,6 +15,7 @@ Tecnologias utilizadas:
 - ANGULAR
 - BOOTSTRAP
 - HTML5
-- JAVASCRIP
+- CSS3
+- JAVASCRIPT
 - POSTGRESQL
 
