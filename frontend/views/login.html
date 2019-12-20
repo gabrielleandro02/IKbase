@@ -15,13 +15,13 @@
     <script src="/js/services/usuarioAPI.js"></script>
     <script src="/js/services/configValue.js"></script>
     <script src="/js/directives/uiGeral.js"></script>
-    <script src="/js/controllers/deslogarCtrl.js"></script>
 
 </head>
 
-<body ng-controller="loginCtrl" >
-    <ui-header></ui-header>
-    <div id="container" style="height: 100vh;">
+<body ng-controller="loginCtrl">
+<ui-header></ui-header>
+        
+    <div id="container">
          <img style="width: 30%; height: auto; border-radius: 50%; margin-bottom: 1%;" src="img/8dicas8.jpg" alt="">
         <h1>Login</h1>
         <form name="usuarioForm">
@@ -38,8 +38,8 @@
                 Por favor digite sua senha</div>
                 
         </form>
-        <a><button ng-disabled="usuarioForm.$invalid" class="btn btn-light btn-block" ng-click="logar()">Logar</button></a>
-
+        <a href="http://localhost:3000/"><button ng-disabled="usuarioForm.$invalid" class="btn btn-light btn-block" ng-click="logar()">Logar</button></a>
+        <p style="margin-top:5%;">não tem uma conta? <a href="http://localhost:3000/cadastro">cadastre-se</a></p>
     </div>
     <ui-footer></ui-footer>
 </body>
