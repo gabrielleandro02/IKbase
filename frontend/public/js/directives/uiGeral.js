@@ -6,16 +6,16 @@ angular.module("projeto").directive("uiHeader", function() {
             <div class="logo">
                 <img src="/img/logo.png">
             </div>
-            <ul class="nav-links" style="width: 30%;">
-                <li><a href="http://localhost:3000/">Inicio</a></li>
-                <li><a href="http://localhost:3000/sobre">Sobre nós</a></li>
-                <li><a href="http://localhost:3000/ajuda">Ajuda</a></li>
+            <ul class="nav-links" style="width: 30%; margin-top: 1%">
+                <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;"><a href="http://localhost:3000/">Inicio</a></li>
+                <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;"><a href="http://localhost:3000/sobre">Sobre</a></li>
+                <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;"><a href="http://localhost:3000/ajuda">Ajuda</a></li>
             </ul>
-            <ul class="nav-links" style="width: 25%;">
-                <li ng-show="id"><a href="http://localhost:3000/usuario">Usuario</a></li>
-                <li ng-show="id"><a href="http://localhost:3000/">Deslogar</a></li>
-                <li ng-show="!id"><a href="http://localhost:3000/login">Login</a></li>
-                <li ng-show="!id"><a href="http://localhost:3000/cadastro">Cadastro</a></li>
+            <ul class="nav-links" style="width: 25%; margin-top: 1%;">
+                <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;" ng-show="id"><a href="http://localhost:3000/usuario">Usuario</a></li>
+                <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;" ng-show="id"><a href="http://localhost:3000/">Deslogar</a></li>
+                <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;" ng-show="!id"><a href="http://localhost:3000/login">Login</a></li>
+                <li style="list-style-position:inside; border: 3px solid yellow; padding: 10px; -moz-border-radius: 30%; -webkit-border-radius: 30%;" ng-show="!id"><a href="http://localhost:3000/cadastro">Cadastro</a></li>
             </ul>
         </nav>
         </header>
